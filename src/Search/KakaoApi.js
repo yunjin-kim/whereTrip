@@ -1,13 +1,15 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect, useState } from 'react';
+import SearchResult from './SearchResult';
 const { kakao } = window;
 
 const KakaoApi = ({searchedKeyword}) => {
-  console.log("KakaoApi")
+  const [searchData, setSearchData] = useState([]);
+
+  //데이터가 15개 밖에 안 나옴
   let ps = new kakao.maps.services.Places();  
 
   useEffect(() => {
     searchPlaces(searchedKeyword)
-    
 
     // 키워드 검색을 요청하는 함수입니다
     function searchPlaces() {
@@ -24,8 +26,7 @@ const KakaoApi = ({searchedKeyword}) => {
     function placesSearchCB(data, status) {
   
       if (status === kakao.maps.services.Status.OK) {
-        console.log(data)
-      
+        setSearchData(data);
       } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
           alert('검색 결과가 존재하지 않습니다.');
           return;
@@ -34,13 +35,13 @@ const KakaoApi = ({searchedKeyword}) => {
           return;
       }
     }
+  },[searchedKeyword])
 
-  }, [searchedKeyword])
 
 
   return(
     <>
-
+      <SearchResult searchData={searchData} />
     </>
   )
 }

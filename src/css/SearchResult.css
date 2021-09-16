@@ -1,3 +1,10 @@
+.resultWrap {
+  width: 80%;
+  overflow: hidden;
+  border: 1px solid black;
+  display: flex;
+  flex: 1 1 40%;
+}
 .searchResultCard {
   border: 1px solid black;
 }

@@ -20,7 +20,6 @@ const SearchPage = () => {
     <>
       <SearchForm searchKeyword={searchKeyword} />
       <SearchKeyword />
-      <SearchResult />
       <KakaoApi searchedKeyword={searchedKeyword} />
     </>
   )
