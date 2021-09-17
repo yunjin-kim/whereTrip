@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../css/SearchForm.css';
-import {InputGroup, FormControl, Button } from 'react-bootstrap'
+import {InputGroup, FormControl, Button } from 'react-bootstrap';
+
 
 const SearchForm = ({searchKeyword}) => {
   const [searchText, setSearchText] = useState('');
@@ -27,10 +28,10 @@ const SearchForm = ({searchKeyword}) => {
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
           />
-          <Button className="searchBtn" variant="outline-secondary" id="button-addon2" type="submit">
-            떠나기
-          </Button>
         </InputGroup>
+        <Button className="searchBtn" variant="primary" size="lg" type="submit" active>
+          떠나기
+        </Button>
       </form>
     </>
   )

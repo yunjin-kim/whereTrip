@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/SearchResult.css';
 import {Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 const SearchResult = ({searchData}) => {
   console.log(searchData)
@@ -9,17 +10,19 @@ const SearchResult = ({searchData}) => {
       <div className="resultWrap">
       {
         searchData.map((data)=>(
-          <Card className="searchResultCard " style={{ width: '18rem' }}>
+          <Card className="searchResultCard" key={data.id} style={{ width: '18rem' }}>
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
               <Card.Body>
-                <Card.Link href="{data.place_url}">{data.place_name}</Card.Link>
+                <a href="https://place.map.kakao.com/" target="_blank">
+                  {data.place_name}
+                </a>
                 <Card.Text>
                   {data.address_name}
                 </Card.Text>
                 <Card.Text>
                   {data.phone}
                 </Card.Text>
-              </Card.Body>
+            </Card.Body>
           </Card>
         ))
       }

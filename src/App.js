@@ -1,12 +1,15 @@
 import React from 'react';
 import SearchPage from './Search/SearchPage';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   
 
   return (
     <>
-      <SearchPage />
+      <BrowserRouter>
+        <SearchPage />
+      </BrowserRouter>
     </>
   );
 }
