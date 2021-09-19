@@ -5,14 +5,14 @@ import {InputGroup, FormControl, Button } from 'react-bootstrap';
 
 const SearchForm = ({searchKeyword}) => {
   const [searchText, setSearchText] = useState('');
+  // const [doSearch, setDoSearch] = useState(false);
 
   const searchInput = (e) => {
-    console.log('searchInput')
     setSearchText(e.target.value);
   }
 
   const searchSubmit = (e) => {
-    console.log('searchSubmit')
+    // setDoSearch(true);
     e.preventDefault();
     searchKeyword(searchText);
   }
