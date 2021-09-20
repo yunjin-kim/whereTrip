@@ -13,7 +13,7 @@ const SearchResult = ({searchData}) => {
           <Card className="searchResultCard" key={data.id} style={{ width: '18rem' }}>
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
               <Card.Body>
-                <a href="https://place.map.kakao.com/" target="_blank">
+                <a href={`https://place.map.kakao.com/${data.id}`} target="_blank">
                   {data.place_name}
                 </a>
                 <Card.Text>
