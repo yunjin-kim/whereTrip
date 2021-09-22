@@ -6,15 +6,13 @@ const KakaoApi = ({searchedKeyword}) => {
   const [searchData, setSearchData] = useState([]);
   const [clickPagination, setClickPagination] = useState('');
   const [clickNum, setCLickNum] = useState(0);
-  const [state, setState] = useState([]);
-
-  //데이터가 15개 밖에 안 나옴
+  
   //한번 검색 실패하면 계속 실패
-  //다음 페이지 불러오면 이전 페이지 덮어쓰지 않고 밑에 추가할 수 있게
   
   let ps = new kakao.maps.services.Places(); 
 
   useEffect(() => {
+    console.log("useEffect")
     if(searchedKeyword){
       searchPlaces(searchedKeyword)
     }
@@ -27,18 +25,18 @@ const KakaoApi = ({searchedKeyword}) => {
           alert('키워드를 입력해주세요!');
           return false;
         }
-      
+
+        setSearchData([]);
+        setCLickNum(0);
       // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
       ps.keywordSearch( searchedKeyword, placesSearchCB); 
     }
   
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
     function placesSearchCB(data, status, pagination) {
+      setClickPagination(pagination)
       if (status === kakao.maps.services.Status.OK) {
-        setSearchData(data);
-
-        setClickPagination(pagination)
-      
+        setSearchData(prevData => prevData.concat(data));
       } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
           alert('검색 결과가 존재하지 않습니다.');
           return;
@@ -48,26 +46,19 @@ const KakaoApi = ({searchedKeyword}) => {
       }
     }
 
-
-
   const moreSearchResult = () => {
     setCLickNum(clickNum + 1);
   }
 
   if(clickNum === 1){
-    clickPagination.gotoPage(2)
+      clickPagination.gotoPage(2);
   }
   else if(clickNum === 2){
     clickPagination.gotoPage(3);
   }
-
-  console.log(clickNum);
-
-
-  // console.log("clickPagination")
-  // console.log(clickPagination);
-
-
+  
+  console.log("searchData")
+  console.log(searchData)
   return(
     <>
       <SearchResult searchData={searchData} />

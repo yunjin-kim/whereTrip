@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import '../css/SearchForm.css';
 import {InputGroup, FormControl, Button } from 'react-bootstrap';
 
@@ -7,15 +7,15 @@ const SearchForm = ({searchKeyword}) => {
   const [searchText, setSearchText] = useState('');
   // const [doSearch, setDoSearch] = useState(false);
 
-  const searchInput = (e) => {
+  const searchInput = useCallback((e) => {
     setSearchText(e.target.value);
-  }
+  },[])
 
-  const searchSubmit = (e) => {
+  const searchSubmit = useCallback((e) => {
     // setDoSearch(true);
     e.preventDefault();
     searchKeyword(searchText);
-  }
+  },[searchText])
 
   return(
     <>
