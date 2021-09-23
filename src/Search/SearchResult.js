@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/SearchResult.css';
 import {Card } from 'react-bootstrap'
+import '../css/SearchResult.css';
 
 const SearchResult = ({searchData}) => {
   return(

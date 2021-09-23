@@ -1,5 +1,6 @@
 import React,{ useEffect, useState } from 'react';
 import SearchResult from './SearchResult';
+import '../css/SearchResult.css';
 const { kakao } = window;
 
 const KakaoApi = ({searchedKeyword}) => {
@@ -78,8 +79,8 @@ const KakaoApi = ({searchedKeyword}) => {
     <>
       <SearchResult searchData={searchData} />
       {
-        moreBtn
-        ? <button onClick={moreSearchResult}>더보기</button>
+        moreBtn 
+        ? <button className="moreBtn" onClick={moreSearchResult}>더보기</button>
         : null
       }
       

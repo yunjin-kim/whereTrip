@@ -13,3 +13,15 @@
   border: 1px solid black;
   margin-bottom: 1vh;
 }
+.moreBtn {
+  margin-left: 50%;
+  margin-bottom: 20px;
+  width: 120px;
+  height: 60px;
+  font-size: 1.5rem;
+  background-color: #f95700;
+  color: #ffffff;
+  font-weight: 900;
+  border: none;
+  border-radius: 20px;
+}
