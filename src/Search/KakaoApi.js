@@ -11,7 +11,6 @@ const KakaoApi = ({searchedKeyword}) => {
   const [moreBtn, setMoreBtn] = useState(false);
   
   //한번 검색 실패하면 계속 실패
-  
   let ps = new kakao.maps.services.Places(); 
 
   useEffect(() => {
