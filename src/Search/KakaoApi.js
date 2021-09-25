@@ -9,7 +9,10 @@ const KakaoApi = ({searchedKeyword}) => {
   const [clickNum, setCLickNum] = useState(0);
   const [clickBtnNum, setCLickBtnNum] = useState(0);
   const [moreBtn, setMoreBtn] = useState(false);
-  
+  //검색하면 전에 값을 기억해서 전에 검색한거 새로 검색한거 이어서 검색결과 보여준다
+  //ex)속초 검색하고 지우고 강릉 검색하면 속초강릉  이렇게  새로 검색할 때 기존꺼 삭제하는 함수
+  //이것 때문에 한번 검색하면 ㄱㅖ속 실패한듯??
+  //강릉을 클릭하면 강릉에 관한 것들이 나올 수 있도록 예를 들어 호텔, 바다, 카페 이렇게 키워드가 바뀔 수 있게
   //한번 검색 실패하면 계속 실패
   let ps = new kakao.maps.services.Places(); 
 
@@ -68,11 +71,9 @@ const KakaoApi = ({searchedKeyword}) => {
     //아마 카카오api로 무언가를 조작할 때 동시에 동작하려고 하면 오류가 난다
     setTimeout(()=>{
       setMoreBtn(false);
-    },1000)
+    },100)
     
   }
-  
-
   
   return(
     <>

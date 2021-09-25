@@ -10,8 +10,8 @@ import '../css/SearchPage.css'
 const SearchPage = () => {
   const [searchedKeyword, setSearchedKeyword] = useState('');
 
-  const searchKeyword = (searchText) => {
-    console.log("searchKeyword")
+  const getSearchData = (searchText) => {
+    console.log("getSearchData")
     const keyword = searchText;
     setSearchedKeyword('');
     setSearchedKeyword(searchedKeyword.concat(keyword));
@@ -20,8 +20,8 @@ const SearchPage = () => {
   return(
     <>
       <h2 className="title">어디로여행</h2>
-      <SearchForm searchKeyword={searchKeyword} />
-      <SearchKeyword />
+      <SearchForm getSearchData={getSearchData} />
+      <SearchKeyword getSearchData={getSearchData} />
       <KakaoApi searchedKeyword={searchedKeyword} />
       <Crawling />
     </>
