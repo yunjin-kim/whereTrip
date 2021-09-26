@@ -9,7 +9,7 @@ const KeywordSection = ({clickKeyword, locationArr}) => {
       {
         locationArr.location.map((loc)=>(
           loc.name === clickKeyword
-          ? <KeywordSectionButton section={loc.section} />
+          ? <KeywordSectionButton section={loc.section} key={loc} />
           : null
         ))
       }

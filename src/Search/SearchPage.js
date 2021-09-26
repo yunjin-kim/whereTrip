@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchForm from './SearchForm';
 import SearchKeyword from './SearchKeyword';
 import KakaoApi from "./KakaoApi";
@@ -10,12 +10,15 @@ import '../css/SearchPage.css'
 const SearchPage = () => {
   const [searchedKeyword, setSearchedKeyword] = useState('');
 
+  useEffect(()=>{
+    setSearchedKeyword('');
+  },[searchedKeyword])
+
   const getSearchData = (searchText) => {
     console.log("getSearchData")
-    const keyword = searchText;
-    setSearchedKeyword('');
-    setSearchedKeyword(searchedKeyword.concat(keyword));
+    setSearchedKeyword(searchedKeyword.concat(searchText));
   }
+  console.log(searchedKeyword)
 
   return(
     <>
