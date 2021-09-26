@@ -9,10 +9,15 @@ import '../css/SearchPage.css'
 //나중에 컴포넌트만 추가하면 밑에 페이지를 더 보여줄 수 있게
 const SearchPage = () => {
   const [searchedKeyword, setSearchedKeyword] = useState('');
+  const [cleanKeywrod, setCleanKeyword ] = useState('')
 
   useEffect(()=>{
     setSearchedKeyword('');
   },[searchedKeyword])
+
+  const checkSubmit = (clickSubmit) => {
+    setCleanKeyword(clickSubmit)
+  }
 
   const getSearchData = (searchText) => {
     console.log("getSearchData")
@@ -23,8 +28,8 @@ const SearchPage = () => {
   return(
     <>
       <h2 className="title">어디로여행</h2>
-      <SearchForm getSearchData={getSearchData} />
-      <SearchKeyword getSearchData={getSearchData} />
+      <SearchForm getSearchData={getSearchData} checkSubmit={checkSubmit} />
+      <SearchKeyword getSearchData={getSearchData} cleanKeywrod={cleanKeywrod} />
       <KakaoApi searchedKeyword={searchedKeyword} />
       <Crawling />
     </>

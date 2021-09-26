@@ -3,18 +3,19 @@ import '../css/SearchForm.css';
 import {InputGroup, FormControl, Button } from 'react-bootstrap';
 
 
-const SearchForm = ({getSearchData}) => {
+const SearchForm = ({getSearchData, checkSubmit}) => {
   const [searchText, setSearchText] = useState('');
-  // const [doSearch, setDoSearch] = useState(false);
+  const [clickSubmit, setClickSubmit] = useState('');
 
   const searchInput = useCallback((e) => {
     setSearchText(e.target.value);
+    setClickSubmit(e);
   },[])
 
   const searchSubmit = useCallback((e) => {
-    // setDoSearch(true);
     e.preventDefault();
     getSearchData(searchText);
+    checkSubmit(clickSubmit);
   },[searchText])
 
   return(

@@ -9,9 +9,8 @@ const KakaoApi = ({searchedKeyword}) => {
   const [clickNum, setCLickNum] = useState(0);
   const [clickBtnNum, setCLickBtnNum] = useState(0);
   const [moreBtn, setMoreBtn] = useState(false);
-  
+
   //강릉을 클릭하면 강릉에 관한 것들이 나올 수 있도록 예를 들어 호텔, 바다, 카페 이렇게 키워드가 바뀔 수 있게
-  //한번 검색 실패하면 계속 실패
   //타이핑해서 검색 / 키워드를 눌러서 검색 / 키워드로 누르고 타이핑으로 검색->input 키워드 검색한거 잘 넣어주면 될 듯?
   //키워드 클릭하면 input에 키워드 누른거 보여주기
   let ps = new kakao.maps.services.Places(); 
