@@ -5,7 +5,7 @@ import '../css/SearchResult.css';
 const SearchResult = ({searchData}) => {
   return(
     <>
-         <div className="resultWrap">
+      <div className="resultWrap">
         {
           searchData.map((data)=>(
             <Card className="searchResultCard" key={data.id} style={{ width: '18rem' }}>

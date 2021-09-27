@@ -2,8 +2,8 @@ import React from "react";
 import KeywordSectionButton from "./KeywordSectionButton";
 
 const KeywordSection = ({clickKeyword, locationArr}) => {
-  console.log(locationArr.location)
-  console.log((clickKeyword))
+  // console.log(locationArr.location)
+  // console.log((clickKeyword))
   return(
     <>
       {

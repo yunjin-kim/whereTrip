@@ -12,23 +12,22 @@ const SearchPage = () => {
   const [cleanKeywrod, setCleanKeyword ] = useState('')
 
   useEffect(()=>{
-    setSearchedKeyword('');
+    // setSearchedKeyword('');
   },[searchedKeyword])
 
   const checkSubmit = (clickSubmit) => {
     setCleanKeyword(clickSubmit)
   }
-
+  //키워드 검색하고 인풋 검색하고 함수 따로 빼줘야 핳 듯?
   const getSearchData = (searchText) => {
     console.log("getSearchData")
-    setSearchedKeyword(searchedKeyword.concat(searchText));
+    setSearchedKeyword(searchText);
   }
-  console.log(searchedKeyword)
 
   return(
     <>
       <h2 className="title">어디로여행</h2>
-      <SearchForm getSearchData={getSearchData} checkSubmit={checkSubmit} />
+      <SearchForm getSearchData={getSearchData} checkSubmit={checkSubmit} searchedKeyword={searchedKeyword} />
       <SearchKeyword getSearchData={getSearchData} cleanKeywrod={cleanKeywrod} />
       <KakaoApi searchedKeyword={searchedKeyword} />
       <Crawling />
