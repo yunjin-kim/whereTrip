@@ -4,7 +4,7 @@ import KeywordLocation from './KeywordLocation';
 import locationArr from '../data/keyword.json';
 import '../css/SearchKeyword.css';
 
-const SearchKeyword = ({getSearchData, cleanKeywrod}) => {
+const SearchKeyword = ({getSearchData, cleanKeyword}) => {
   const [clickKeyword, setClickKeyword] = useState('');
   
   console.log("clickKeyword")
@@ -12,7 +12,7 @@ const SearchKeyword = ({getSearchData, cleanKeywrod}) => {
 
   useEffect(()=>{
     setClickKeyword('');
-  },[cleanKeywrod])
+  },[cleanKeyword])
 
   const onKeyword = (text) => {
     setClickKeyword(text)
@@ -24,7 +24,7 @@ const SearchKeyword = ({getSearchData, cleanKeywrod}) => {
       {
         clickKeyword !== ''
         ? 
-        <KeywordSection clickKeyword={clickKeyword} locationArr={locationArr} />
+        <KeywordSection clickKeyword={clickKeyword} locationArr={locationArr} onKeyword={onKeyword} />
         : 
         (locationArr.location.map((location)=>(
           <KeywordLocation key={location.name} location={location} onKeyword={onKeyword} />

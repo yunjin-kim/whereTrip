@@ -9,12 +9,13 @@ import '../css/SearchPage.css'
 //나중에 컴포넌트만 추가하면 밑에 페이지를 더 보여줄 수 있게
 const SearchPage = () => {
   const [searchedKeyword, setSearchedKeyword] = useState('');
-  const [cleanKeywrod, setCleanKeyword ] = useState('')
+  const [cleanKeyword, setCleanKeyword ] = useState('')
 
-  useEffect(()=>{
-    // setSearchedKeyword('');
-  },[searchedKeyword])
+  // useEffect(()=>{
+  //   // setSearchedKeyword('');
+  // },[searchedKeyword])
 
+  //키워드 클릭하고 폼에서 검색할 때 키워드 다시 1deps로
   const checkSubmit = (clickSubmit) => {
     setCleanKeyword(clickSubmit)
   }
@@ -28,7 +29,7 @@ const SearchPage = () => {
     <>
       <h2 className="title">어디로여행</h2>
       <SearchForm getSearchData={getSearchData} checkSubmit={checkSubmit} searchedKeyword={searchedKeyword} />
-      <SearchKeyword getSearchData={getSearchData} cleanKeywrod={cleanKeywrod} />
+      <SearchKeyword getSearchData={getSearchData} cleanKeyword={cleanKeyword} />
       <KakaoApi searchedKeyword={searchedKeyword} />
       <Crawling />
     </>

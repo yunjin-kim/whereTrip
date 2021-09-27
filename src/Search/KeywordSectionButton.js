@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import '../css/SearchKeyword.css';
 
-const KeywordSectionButton = ({section}) => {
+const KeywordSectionButton = ({section, onKeyword, clickKeyword}) => {
   const [sectionClick, setSectionClick] = useState('');
 
   const sectionBtnClick = (e) => {
     setSectionClick(e.target.id)
+    onKeyword(`${clickKeyword}${e.target.id}`);
   }
   console.log(sectionClick)
 
