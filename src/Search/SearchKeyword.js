@@ -20,7 +20,7 @@ const SearchKeyword = ({getSearchData, cleanKeyword}) => {
   }
   
   return(
-    <>
+    <div className="keywordWrap">
       {
         clickKeyword !== ''
         ? 
@@ -30,7 +30,7 @@ const SearchKeyword = ({getSearchData, cleanKeyword}) => {
           <KeywordLocation key={location.name} location={location} onKeyword={onKeyword} />
         )))
       }      
-    </>
+    </div>
   )
 }
 

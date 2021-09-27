@@ -15,7 +15,7 @@ const SearchPage = () => {
   //   // setSearchedKeyword('');
   // },[searchedKeyword])
 
-  //키워드 클릭하고 폼에서 검색할 때 키워드 다시 1deps로
+  //키워드 검색하고 폼에서 검색할 때 키워드 다시 1deps로
   const checkSubmit = (clickSubmit) => {
     setCleanKeyword(clickSubmit)
   }
