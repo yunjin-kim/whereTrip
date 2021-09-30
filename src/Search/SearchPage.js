@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import SearchForm from './SearchForm';
 import SearchKeyword from './SearchKeyword';
 import KakaoApi from "./KakaoApi";
-import Crawling from "./Crawling";
 import '../css/SearchPage.css'
 
 //메인 페이지 가능성이 높아 기능별로 컴포넌트를 나눔
@@ -10,10 +9,6 @@ import '../css/SearchPage.css'
 const SearchPage = () => {
   const [searchedKeyword, setSearchedKeyword] = useState('');
   const [cleanKeyword, setCleanKeyword ] = useState('')
-
-  // useEffect(()=>{
-  //   // setSearchedKeyword('');
-  // },[searchedKeyword])
 
   //키워드 검색하고 폼에서 검색할 때 키워드 다시 1deps로
   const checkSubmit = (clickSubmit) => {
@@ -31,7 +26,6 @@ const SearchPage = () => {
       <SearchForm getSearchData={getSearchData} checkSubmit={checkSubmit} searchedKeyword={searchedKeyword} />
       <SearchKeyword getSearchData={getSearchData} cleanKeyword={cleanKeyword} />
       <KakaoApi searchedKeyword={searchedKeyword} />
-      <Crawling />
     </>
   )
 }

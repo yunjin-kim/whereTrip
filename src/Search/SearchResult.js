@@ -3,6 +3,7 @@ import {Card } from 'react-bootstrap'
 import '../css/SearchResult.css';
 
 const SearchResult = ({searchData}) => {
+
   return(
     <>
       <div className="resultWrap">

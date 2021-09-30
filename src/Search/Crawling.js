@@ -1,41 +1,45 @@
 import React from "react";
-import axios from 'axios';
-import request from 'request'
-import cheerio from 'cheerio';
-import iconv from 'iconv-lite';
+// import axios from 'axios';
+// import cheerio from 'cheerio';
+
+// let html = "";
+
+// async function getHtml(){
+//   try{
+//     return await axios.get(
+//       "https://place.map.kakao.com/8199114"
+//     )
+//   }
+//   catch(e){
+//     console.error(e);
+//   }
+// }
+
+// async function getImg(){
+//   const html = await getHtml();
+//   console.log(html)
+//   if(!html){
+//     html = await getHtml();
+//   }
+
+//   const $ = cheerio.load(html.data);
+//   let smp = {};
+//   $("#kakoWrap #kakoContext #mArticle .cont_photo .photo_area ul")
+//     .first("li")
+// }
+
+// getImg();
+
+  
 
 const Crawling = () => {
-
-  // async function getHTML(){
-  //   try{
-  //     const response = await axios.get(
-  //       "https://place.map.kakao.com/1376253571"
-  //     )
-  //     console.log(response.data);
-  //   }
-  //   catch(e){
-  //     console.error(e);
-  //   }
-  // }
-
-  // getHTML();
-
-  // getHTML()
-  // .then(html=>{
-  //   let titleList = [];
-  //   const $ = cheerio.load(html.data);
-  //   const bodyList = $("span.bg_present");
-
-  //   return bodyList;
-  // })
-  // .then(res => console.log(res));
 
 
 
 
   return(
     <>
-      {/* <button onClick={Crawling}>크롤링</button> */}
+      <button>크롤링</button>
     </>
   )
 }
