@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import KeywordSection from './KeywordSection';
-import KeywordLocation from './KeywordLocation';
+import KeywordSection from '../Keyword/KeywordSection';
+import KeywordLocation from '../Keyword/KeywordLocation';
 import locationArr from '../data/keyword.json';
 import '../css/SearchKeyword.css';
 

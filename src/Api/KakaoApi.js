@@ -1,5 +1,5 @@
 import React,{ useEffect, useState } from 'react';
-import SearchResult from './SearchResult';
+import SearchResult from '../Search/SearchResult';
 import '../css/SearchResult.css';
 const { kakao } = window;
 
