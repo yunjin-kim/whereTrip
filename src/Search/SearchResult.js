@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {Card } from 'react-bootstrap'
 import '../css/SearchResult.css';
+import ScoreModal from '../Score/ScoreModal';
 
-const SearchResult = ({searchData}) => {
+const SearchResult = React.memo(({searchData}) => {
+  const [scoreModal, setScoreModal] = useState(false);
 
+  const showScoreModal = useCallback((e) => {
+    console.log(e.target.id)
+    setScoreModal(true)
+  },[scoreModal])
+//후기 작성 버튼 누르면 후기id에 검색결과 id를 넣어서 후기 작성완료하면 DB에서 구분
   return(
     <>
       <div className="resultWrap">
@@ -21,13 +28,25 @@ const SearchResult = ({searchData}) => {
                   <Card.Text>
                     {data.phone}
                   </Card.Text>
+                  <Card.Text>
+                    <span id={data.id} onClick={showScoreModal}>후기 작성</span>
+                  </Card.Text>
+                  <Card.Text>
+                    <span>전체 후기 </span>
+                  </Card.Text>
               </Card.Body>
             </Card>
           ))
         }
+        {
+          scoreModal 
+          ? <ScoreModal setScoreModal={setScoreModal} />
+          : null
+        }
+
       </div>
     </>
   )
-}
+})
 
 export default SearchResult;

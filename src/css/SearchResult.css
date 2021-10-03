@@ -6,12 +6,14 @@
   margin: auto;
   justify-content: space-around;
   margin-top: 20vh;
+  z-index: 4;
 }
 .searchResultCard {
   width: 20%;
   height: 24vh;
   border: 1px solid black;
   margin-bottom: 1vh;
+  z-index: 4;
 }
 .moreBtn {
   margin-left: 50%;
