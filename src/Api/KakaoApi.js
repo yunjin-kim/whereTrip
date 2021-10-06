@@ -20,7 +20,7 @@ const KakaoApi = ({searchedKeyword}) => {
     }
   },[searchedKeyword])
 
-
+//더보기 버튼 누르고 추가 검색결과 로드되기전에 여러번 누르면 오류생김 꼭 그런건 아님 id가 겹쳐서 로드되는 오류 
 
     // 키워드 검색을 요청하는 함수입니다
     function searchPlaces() {

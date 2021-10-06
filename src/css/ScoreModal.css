@@ -12,13 +12,29 @@
 .scoreModalClose {
   width: 30px;
 }
-/* .ClickOneStar,
-.ClickTwoStar,
-.ClickThreeStar,
-.ClickFourStar,
-.ClickFiveStar {
+.clickOneStar,
+.clickTwoStar,
+.clickThreeStar,
+.clickFourStar,
+.clickFiveStar {
   color: gainsboro;
-} */
+  cursor: pointer;
+}
+.clickedOneStar,
+.clickedTwoStar,
+.clickedThreeStar,
+.clickedFourStar,
+.clickedFiveStar {
+  color: #f95700;
+}
+
+.noClick {
+  color: gainsboro;
+  cursor: pointer;
+}
+.yesClick {
+  color: #f95700;
+}
 
 label.ClickOneStar:before {
   color: gainsboro;
