@@ -6,9 +6,6 @@ import '../css/SearchKeyword.css';
 
 const SearchKeyword = ({getSearchData, cleanKeyword}) => {
   const [clickKeyword, setClickKeyword] = useState('');
-  
-  console.log("clickKeyword")
-  console.log(clickKeyword)
 
   useEffect(()=>{
     setClickKeyword('');

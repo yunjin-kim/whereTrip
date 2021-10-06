@@ -14,6 +14,7 @@ const KakaoApi = ({searchedKeyword}) => {
 
   useEffect(() => {
     if(searchedKeyword){
+      console.log('___useEffect_____')
       searchPlaces(searchedKeyword)
       setMoreBtn(true);
     }
@@ -23,21 +24,22 @@ const KakaoApi = ({searchedKeyword}) => {
 
     // 키워드 검색을 요청하는 함수입니다
     function searchPlaces() {
-  
         if (!searchedKeyword.replace(/^\s+|\s+$/g, '')) {
           alert('키워드를 입력해주세요!');
           return false;
         }
 
-      
         setSearchData([]);
-        setCLickNum(0);
       // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
       ps.keywordSearch(searchedKeyword, placesSearchCB); 
     }
   
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
     function placesSearchCB(data, status, pagination) {
+
+      setCLickNum(0);
+      setCLickBtnNum(0)
+
       //검색하면 데이터가 처음에 빈값오로 오고 다음에 데이터의 값이 와서 배열만들어서 버튼 숨김유무 처리 ex)인천속초:19개
       const dataLength = [];
 

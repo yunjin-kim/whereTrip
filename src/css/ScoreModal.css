@@ -12,3 +12,24 @@
 .scoreModalClose {
   width: 30px;
 }
+/* .ClickOneStar,
+.ClickTwoStar,
+.ClickThreeStar,
+.ClickFourStar,
+.ClickFiveStar {
+  color: gainsboro;
+} */
+
+label.ClickOneStar:before {
+  color: gainsboro;
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+}
+input#ClickOneStar:checked + label.ClickOneStar::before {
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  color: #f95700;
+}
+input#ClickOneStar {
+  display: none;
+}

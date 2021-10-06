@@ -29,10 +29,10 @@ const SearchResult = React.memo(({searchData}) => {
                     {data.phone}
                   </Card.Text>
                   <Card.Text>
-                    <span id={data.id} onClick={showScoreModal}>후기 작성</span>
+                    <span className="postscript" id={data.id} onClick={showScoreModal}>후기 작성</span>
                   </Card.Text>
                   <Card.Text>
-                    <span>전체 후기 </span>
+                    <span className="holePostscript">전체 후기 </span>
                   </Card.Text>
               </Card.Body>
             </Card>
