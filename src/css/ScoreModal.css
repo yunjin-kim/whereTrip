@@ -49,3 +49,6 @@ input#ClickOneStar:checked + label.ClickOneStar::before {
 input#ClickOneStar {
   display: none;
 }
+.scoreText {
+  height: 234px;
+}

@@ -1,31 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import '../css/ScoreModal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-const ScoreModal = ({setScoreModal}) => {
+const ScoreModal = ({setScoreModal, placeId}) => {
   let [postScore, setPostScore] = useState(0);
+  const [scoreText, setScoreText] = useState('');
   const [clickStar, setClickStar] = useState('');
 
   const scoreModalClose = () => {
     setScoreModal(false);
   }
-
-  console.log(postScore)
-
-
-  // useEffect(() => {
-  //   clickStar.map((star)=>{
-  //     if(star === "yesClick"){
-  //       setPostScore(postScore++);
-  //     }
-  //     else{
-  //       setPostScore(postScore--);
-  //     }
-  //   })
-  // }, [setClickStar])
-
-
 
   function clickStarScroe(idx){
     setPostScore(0)
@@ -44,6 +29,18 @@ const ScoreModal = ({setScoreModal}) => {
     setClickStar(starClickArr)
   }
 
+  const writeScoreText = useCallback((e) => {
+    setScoreText(e.target.value)
+  },[scoreText])
+
+  const submitScore = (e) => {
+    e.preventDefault();
+    setScoreModal(false);
+    console.log(placeId, postScore, scoreText)
+    //postScore, scoreText 보내는 코드
+  }
+
+
   return(
     <>
       <div className="scoreModal">
@@ -55,8 +52,8 @@ const ScoreModal = ({setScoreModal}) => {
           <FontAwesomeIcon icon={faStar} onClick={()=>clickStarScroe(3)} className={clickStar[3]}   />
           <FontAwesomeIcon icon={faStar} onClick={()=>clickStarScroe(4)} className={clickStar[4]}   />
         </div>
-        <textarea></textarea>
-        <button>작성</button>
+        <textarea className="scoreText" onChange={writeScoreText}></textarea>
+        <button onClick={submitScore}>작성</button>
       </div>
     </>
   )

@@ -5,9 +5,10 @@ import ScoreModal from '../Score/ScoreModal';
 
 const SearchResult = React.memo(({searchData}) => {
   const [scoreModal, setScoreModal] = useState(false);
+  const [placeId, setPlaceId] = useState('')
 
   const showScoreModal = useCallback((e) => {
-    console.log(e.target.id)
+    setPlaceId(e.target.id)
     setScoreModal(true)
   },[scoreModal])
 //후기 작성 버튼 누르면 후기id에 검색결과 id를 넣어서 후기 작성완료하면 DB에서 구분
@@ -42,7 +43,7 @@ const SearchResult = React.memo(({searchData}) => {
         }
         {
           scoreModal 
-          ? <ScoreModal setScoreModal={setScoreModal} />
+          ? <ScoreModal setScoreModal={setScoreModal} placeId={placeId} />
           : null
         }
 
