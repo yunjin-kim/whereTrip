@@ -18,6 +18,7 @@ const SearchForm = ({getSearchData, checkSubmit, searchedKeyword}) => {
     setClickSubmit(e);
   },[])
 
+
   const searchSubmit = useCallback((e) => {
     e.preventDefault();
     getSearchData(searchText);

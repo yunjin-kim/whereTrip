@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchForm from './SearchForm';
 import SearchKeyword from './SearchKeyword';
 import KakaoApi from "../Api/KakaoApi";

@@ -12,6 +12,8 @@ const KakaoApi = ({searchedKeyword}) => {
 
   let ps = new kakao.maps.services.Places(); 
 
+  console.log(searchData)
+
   useEffect(() => {
     if(searchedKeyword){
       console.log('___useEffect_____')
@@ -44,10 +46,10 @@ const KakaoApi = ({searchedKeyword}) => {
       const dataLength = [];
 
       setClickPagination(pagination)
-      if (status === kakao.maps.services.Status.OK) {
+      if (status == kakao.maps.services.Status.OK) {
         setSearchData(prevData => prevData.concat(data));
-        console.log(data.length)
         dataLength.push(data.length);
+        
         if(dataLength[0] < 15){
           setMoreBtn(false);
         }
@@ -62,24 +64,21 @@ const KakaoApi = ({searchedKeyword}) => {
     }
 
   const moreSearchResult = () => {
-    setCLickNum(clickNum + 1);
-    setCLickBtnNum(clickBtnNum + 1);
+    if(searchData.length === 15){
+      clickPagination.gotoPage(2);
+    }
+    if(searchData.length === 30){
+      clickPagination.gotoPage(3);
+      setCLickBtnNum(clickBtnNum + 2);
+    }
   }
 
-  if(clickNum === 1){
-    clickPagination.gotoPage(2);
-  }
-  else if(clickNum === 2){
-    clickPagination.gotoPage(3);
-  }
   //카카오api render할 때 다른 동작하면 오류
   if(clickBtnNum === 2){
     setTimeout(()=>{
       setMoreBtn(false);
-    },100)
+    },500)
   }
-
-
   
   return(
     <>
