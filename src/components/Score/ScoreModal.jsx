@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useCallback} from "react";
-import '../css/ScoreModal.css';
+import React, {useState, useCallback} from "react";
+import '../../css/ScoreModal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 

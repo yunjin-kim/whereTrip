@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SearchForm from './SearchForm';
-import SearchKeyword from './SearchKeyword';
-import KakaoApi from "../Api/KakaoApi";
+import SearchForm from '../components/Search/SearchForm';
+import SearchKeyword from '../components/Search/SearchKeyword';
+import KakaoApi from "../Api/KakaoApi.jsx";
 import '../css/SearchPage.css'
 
 //메인 페이지 가능성이 높아 기능별로 컴포넌트를 나눔

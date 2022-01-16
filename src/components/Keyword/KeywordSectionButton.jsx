@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../css/SearchKeyword.css';
+import '../../css/SearchKeyword.css';
 
 const KeywordSectionButton = ({section, onKeyword, clickKeyword}) => {
   const [sectionClick, setSectionClick] = useState('');

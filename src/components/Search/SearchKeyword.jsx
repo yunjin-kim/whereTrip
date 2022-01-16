@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import KeywordSection from '../Keyword/KeywordSection';
 import KeywordLocation from '../Keyword/KeywordLocation';
-import locationArr from '../data/keyword.json';
-import '../css/SearchKeyword.css';
+import locationArr from '../../data/keyword.json';
+import '../../css/SearchKeyword.css';
 
 const SearchKeyword = ({getSearchData, cleanKeyword}) => {
   const [clickKeyword, setClickKeyword] = useState('');

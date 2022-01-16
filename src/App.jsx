@@ -1,9 +1,8 @@
 import React from 'react';
-import SearchPage from './Search/SearchPage';
 import { BrowserRouter, Route } from 'react-router-dom';
+import SearchPage from './page/SearchPage';
 
 function App() {
-  
 
   return (
     <> 

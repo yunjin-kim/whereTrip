@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import '../css/SearchForm.css';
 import {InputGroup, FormControl, Button } from 'react-bootstrap';
-
+import "../../css/SearchForm.css";
 
 const SearchForm = ({getSearchData, checkSubmit, searchedKeyword}) => {
   const [searchText, setSearchText] = useState('');

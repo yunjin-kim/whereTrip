@@ -1,9 +1,10 @@
-import React, {useCallback, useState} from 'react';
-import {Card } from 'react-bootstrap'
-import '../css/SearchResult.css';
+import React, { useCallback, useState } from 'react';
+import { Card } from 'react-bootstrap'
 import ScoreModal from '../Score/ScoreModal';
+import '../../css/SearchResult.css';
 
-const SearchResult = React.memo(({searchData}) => {
+
+const SearchResult = React.memo(({ searchData }) => {
   const [scoreModal, setScoreModal] = useState(false);
   const [placeId, setPlaceId] = useState('')
 
