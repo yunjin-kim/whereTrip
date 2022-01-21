@@ -9,23 +9,27 @@ import '../css/SearchPage.css'
 const SearchPage = () => {
   const [searchedKeyword, setSearchedKeyword] = useState('');
   const [cleanKeyword, setCleanKeyword ] = useState('')
+  const [resetResult, setRestResult] = useState(false)
 
   //키워드 검색하고 폼에서 검색할 때 키워드 다시 1deps로
   const checkSubmit = (clickSubmit) => {
     setCleanKeyword(clickSubmit)
   }
-  //키워드 검색하고 인풋 검색하고 함수 따로 빼줘야 핳 듯?
-  const getSearchData = (searchText) => {
-    console.log("getSearchData")
-    setSearchedKeyword(searchText);
+
+  const homeButtonClick = () => {
+    setSearchedKeyword('')
+    setCleanKeyword({
+      cleanKeyword: ''
+    });
+    setRestResult(false)
   }
 
   return(
     <>
-      <h2 className="title">어디로여행</h2>
-      <SearchForm getSearchData={getSearchData} checkSubmit={checkSubmit} searchedKeyword={searchedKeyword} />
-      <SearchKeyword getSearchData={getSearchData} cleanKeyword={cleanKeyword} />
-      <KakaoApi searchedKeyword={searchedKeyword} />
+      <h2 onClick={() => homeButtonClick()} className="title">어디로여행</h2>
+      <SearchForm setSearchedKeyword={setSearchedKeyword} checkSubmit={checkSubmit} searchedKeyword={searchedKeyword} />
+      <SearchKeyword setSearchedKeyword={setSearchedKeyword} cleanKeyword={cleanKeyword} />
+      <KakaoApi searchedKeyword={searchedKeyword} resetResult={resetResult} setRestResult={setRestResult} />
     </>
   )
 }

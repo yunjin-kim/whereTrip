@@ -1,6 +1,6 @@
 import React from 'react';
 
-const KeywordLocation = ({location, onKeyword}) => {
+const KeywordLocation = ({ location, onKeyword }) => {
   
   const keywordClick = (e) => {
     onKeyword(e.target.id)

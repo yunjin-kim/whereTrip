@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import {InputGroup, FormControl, Button } from 'react-bootstrap';
 import "../../css/SearchForm.css";
 
-const SearchForm = ({getSearchData, checkSubmit, searchedKeyword}) => {
+const SearchForm = ({ setSearchedKeyword, checkSubmit, searchedKeyword }) => {
   const [searchText, setSearchText] = useState('');
   const [clickSubmit, setClickSubmit] = useState('');
   const [inputValue, setInputValue] = useState('')
@@ -17,12 +17,12 @@ const SearchForm = ({getSearchData, checkSubmit, searchedKeyword}) => {
     setClickSubmit(e);
   },[])
 
-
-  const searchSubmit = useCallback((e) => {
+  const searchSubmit = (e) => {
     e.preventDefault();
-    getSearchData(searchText);
+
+    setSearchedKeyword(searchText);
     checkSubmit(clickSubmit);
-  },[searchText])
+  }
 
   return(
     <>
@@ -37,7 +37,13 @@ const SearchForm = ({getSearchData, checkSubmit, searchedKeyword}) => {
             aria-describedby="basic-addon2"
           />
         </InputGroup>
-        <Button className="searchBtn" variant="primary" size="lg" type="submit" active>
+        <Button 
+          className="searchBtn" 
+          variant="primary" 
+          size="lg" 
+          type="submit" 
+          active
+        >
           떠나기
         </Button>
       </form>

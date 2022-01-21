@@ -8,7 +8,6 @@ const KeywordSectionButton = ({section, onKeyword, clickKeyword}) => {
     setSectionClick(e.target.id)
     onKeyword(`${clickKeyword}${e.target.id}`);
   }
-  console.log(sectionClick)
 
   return(
     <>

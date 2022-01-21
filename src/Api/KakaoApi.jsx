@@ -3,7 +3,7 @@ import SearchResult from '../components/Search/SearchResult';
 import '../css/SearchResult.css';
 const { kakao } = window;
 
-const KakaoApi = ({searchedKeyword}) => {
+const KakaoApi = ({ searchedKeyword, resetResult, setRestResult }) => {
   const [searchData, setSearchData] = useState([]);
   const [clickPagination, setClickPagination] = useState('');
   const [clickNum, setCLickNum] = useState(0);
@@ -16,32 +16,27 @@ const KakaoApi = ({searchedKeyword}) => {
 
   useEffect(() => {
     if(searchedKeyword){
-      console.log('___useEffect_____')
-      searchPlaces(searchedKeyword)
+      setRestResult(true);
+      searchPlaces(searchedKeyword);
       setMoreBtn(true);
     }
   },[searchedKeyword])
 
-//더보기 버튼 누르고 추가 검색결과 로드되기전에 여러번 누르면 오류생김 꼭 그런건 아님 id가 겹쳐서 로드되는 오류 
-
-    // 키워드 검색을 요청하는 함수입니다
-    function searchPlaces() {
-        if (!searchedKeyword.replace(/^\s+|\s+$/g, '')) {
-          alert('키워드를 입력해주세요!');
-          return false;
-        }
-
-        setSearchData([]);
+  // 키워드 검색을 요청하는 함수입니다
+  function searchPlaces() {
+    if (!searchedKeyword.replace(/^\s+|\s+$/g, '')) {
+      alert('키워드를 입력해주세요!');
+      return false;
+    }
+    setSearchData([]);
       // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
       ps.keywordSearch(searchedKeyword, placesSearchCB); 
     }
   
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
     function placesSearchCB(data, status, pagination) {
-
       setCLickNum(0);
       setCLickBtnNum(0)
-
       //검색하면 데이터가 처음에 빈값오로 오고 다음에 데이터의 값이 와서 배열만들어서 버튼 숨김유무 처리 ex)인천속초:19개
       const dataLength = [];
 
@@ -50,7 +45,7 @@ const KakaoApi = ({searchedKeyword}) => {
         setSearchData(prevData => prevData.concat(data));
         dataLength.push(data.length);
         
-        if(dataLength[0] < 15){
+        if (dataLength[0] < 15) {
           setMoreBtn(false);
         }
       } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
@@ -64,31 +59,31 @@ const KakaoApi = ({searchedKeyword}) => {
     }
 
   const moreSearchResult = () => {
-    if(searchData.length === 15){
+    if (searchData.length === 15) {
       clickPagination.gotoPage(2);
     }
-    if(searchData.length === 30){
+    if (searchData.length === 30) {
       clickPagination.gotoPage(3);
       setCLickBtnNum(clickBtnNum + 2);
     }
   }
 
   //카카오api render할 때 다른 동작하면 오류
-  if(clickBtnNum === 2){
+  if (clickBtnNum === 2) {
     setTimeout(()=>{
       setMoreBtn(false);
-    },500)
+    }, 500)
   }
-  
-  return(
+
+  return (
     <>
-      <SearchResult searchData={searchData} />
-      {
-        moreBtn 
-        ? <button className="moreBtn" onClick={moreSearchResult}>더보기</button>
-        : null
-      }
-      
+        {
+        resetResult
+        ? <>        
+            <SearchResult searchData={searchData} />
+            {moreBtn ? <button className="moreBtn" onClick={moreSearchResult}>더보기</button> : null}
+          </>
+        : <div>검색하고 싶은 키워드를 눌러주세요</div>}
     </>
   )
 }
