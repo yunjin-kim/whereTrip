@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SearchResult from '../components/Search/SearchResult';
-import '../css/SearchResult.css';
+import "../css/SearchApi.css";
+
 const { kakao } = window;
 
 const KakaoApi = ({ searchedKeyword, resetResult, setRestResult }) => {
@@ -83,7 +84,7 @@ const KakaoApi = ({ searchedKeyword, resetResult, setRestResult }) => {
             <SearchResult searchData={searchData} />
             {moreBtn ? <button className="moreBtn" onClick={moreSearchResult}>더보기</button> : null}
           </>
-        : <div>검색하고 싶은 키워드를 눌러주세요</div>}
+        : <div className="inititalSearchResult" >검색하고 싶은 키워드를 눌러주세요</div>}
     </>
   )
 }
