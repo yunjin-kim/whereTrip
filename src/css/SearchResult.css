@@ -1,5 +1,5 @@
 .resultWrap {
-  width: 80%;
+  width: 94%;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -10,20 +10,14 @@
 }
 .searchResultCard {
   width: 200px;
-  height: 180px;
+  height: 100px;
+  padding: 20px;
   border: 1px solid black;
-  margin-bottom: 1vh;
+  border-radius: 18px;
+  margin-bottom: 3vh;
   z-index: 4;
 }
-.moreBtn {
-  margin-left: 50%;
-  margin-bottom: 20px;
-  width: 120px;
-  height: 60px;
-  font-size: 1.5rem;
-  background-color: #f95700;
-  color: #ffffff;
-  font-weight: 900;
-  border: none;
-  border-radius: 20px;
+.searchResultCard:hover {
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
+  transition-duration: 500ms;
 }

@@ -78,13 +78,14 @@ const KakaoApi = ({ searchedKeyword, resetResult, setRestResult }) => {
 
   return (
     <>
-        {
+      {
         resetResult
         ? <>        
             <SearchResult searchData={searchData} />
             {moreBtn ? <button className="moreBtn" onClick={moreSearchResult}>더보기</button> : null}
-          </>
-        : <div className="inititalSearchResult" >검색하고 싶은 키워드를 눌러주세요</div>}
+          </> // 검색이 완료된 후 더보기가 보여야한다
+        : <div className="inititalSearchResult" >검색하고 싶은 키워드를 눌러주세요</div>
+      }
     </>
   )
 }

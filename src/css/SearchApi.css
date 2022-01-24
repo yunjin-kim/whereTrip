@@ -1,3 +1,14 @@
 .inititalSearchResult {
   margin: 5vh 10% 0px 10%;
 }
+.moreBtn {
+  margin: 1vh 0px 0px 40%;
+  width: 120px;
+  height: 60px;
+  font-size: 1.5rem;
+  background-color: #f95700;
+  color: #ffffff;
+  font-weight: 900;
+  border: none;
+  border-radius: 20px;
+}
